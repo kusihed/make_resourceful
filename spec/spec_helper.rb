@@ -77,8 +77,6 @@ module ControllerMocks
     @kontroller.extend Resourceful::Maker
     to_extend.each(&@kontroller.method(:extend))
 
-    @hidden_actions = Resourceful::ACTIONS.dup
-    @kontroller.stubs(:hidden_actions).returns(@hidden_actions)
     @kontroller.stubs(:plural_action?).returns(false)
     @kontroller.stubs(:include)
     @kontroller.stubs(:before_action)

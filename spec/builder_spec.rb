@@ -14,11 +14,6 @@ describe Resourceful::Builder, " applied without any modification" do
     @builder.apply
   end
 
-  it "shouldn't un-hide any actions" do
-    @builder.apply
-    @kontroller.hidden_actions.should == Resourceful::ACTIONS
-  end
-
   it "shouldn't set any callbacks" do
     @builder.apply
     callbacks.should == {:before => {}, :after => {}}
@@ -60,11 +55,6 @@ describe Resourceful::Builder, " with some actions set" do
         @actions.map(&:to_s).sort
     end
     @builder.apply
-  end
-
-  it "should un-hide the given actions" do
-    @builder.apply
-    (@kontroller.hidden_actions & @actions).should be_empty
   end
 
   it "should set load_parent_object as a before_action for the given actions" do
