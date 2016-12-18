@@ -349,7 +349,7 @@ module Resourceful
       #
       def ensure_parent_exists
         return true if parent?
-        render :text => 'No parent id given', :status => 422
+        render :plain => 'No parent id given', :status => 422
         return false
       end
 
